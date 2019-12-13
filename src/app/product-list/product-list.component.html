@@ -1,5 +1,6 @@
 <h2>Products</h2>
 
+<!-- 一つずつproductに格納 -->
 <div *ngFor="let product of products">
     <h3>
         <a [title]="product.name + 'details'">
@@ -11,6 +12,13 @@
         </p>
 
         <button (click)="share()">Share</button>
+
+        <!-- product-alertsコンポを呼び出す 
+            notifyはproduct-alertsコンポで定義 -->
+        <app-product-alerts 
+        [product]="product"
+        (notify)="onNotify()">
+        </app-product-alerts>
     </h3>
 </div>
 
